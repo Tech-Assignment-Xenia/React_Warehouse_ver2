@@ -1,0 +1,33 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--primary-color);
+  font-family: 'Inter', sans-serif;
+  line-height: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  transition: 0.3s ease-out;
+}
