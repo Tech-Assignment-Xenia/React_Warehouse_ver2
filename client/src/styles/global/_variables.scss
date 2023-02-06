@@ -1,10 +1,15 @@
 :root {
   --btn-color: #04347f;
-  --active-page-color: #072c5e;
+  --active-color: #072c5e;
   --accent-color: #474ebb;
   --border-color: #dadada;
   --primary-color: #ffffff;
   --primary-text-color: #282121;
   --secondary-text-color: #c4c4c4;
   --black-color: #000000;
+
+  --border-radius-sm: 5px;
+  --border-radius-md: 12px;
+
+  --basic-transition: 0.3s;
 }
