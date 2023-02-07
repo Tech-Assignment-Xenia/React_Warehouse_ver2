@@ -108,3 +108,21 @@
     }
   }
 }
+
+.block {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.response {
+  display: block;
+  text-align: center;
+  color: var(--black-color);
+
+  &__hidden {
+    display: none;
+  }
+}

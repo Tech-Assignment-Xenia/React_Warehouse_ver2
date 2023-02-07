@@ -7,7 +7,9 @@
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
-    "seeder-data": "node seeder/seeder"
+    "seeder-data": "node seeder/seeder",
+    "client": "npm start --prefix ../client",
+    "app": "concurrently --kill-others-on-fail \"npm run dev\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
@@ -20,5 +22,8 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
   }
 }
