@@ -2,9 +2,9 @@ import Header from '../../components/Header/Header'
 import MainContent from '../../components/MainContent/MainContent'
 import Navbar from '../../components/Navbar/Navbar'
 
-import styles from './HomePage.module.scss'
+import styles from './MainPage.module.scss'
 
-function HomePage() {
+function MainPage() {
   return (
     <main className={styles.grid}>
       <Navbar />
@@ -14,4 +14,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+export default MainPage

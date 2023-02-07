@@ -48,11 +48,6 @@ app.get('/get-token', (req, res) => {
   }
 })
 
-//logout route
-// app.get('/logout', (req, res) => {
-//   return res.clearCookie('access_token').send('access token was deleted')
-// })
-
 app.use(authRoutes)
 
 app.listen(process.env.PORT || 5000, () => {

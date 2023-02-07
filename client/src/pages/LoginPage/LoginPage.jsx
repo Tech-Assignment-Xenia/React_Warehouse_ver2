@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { loginApiRequest } from './apiRequest'
+import { useAuth } from '../AuthContext'
 
 import login_img from '../.././assets/login.png'
 
@@ -12,6 +13,8 @@ function LoginPage() {
     email: '',
     password: '',
   })
+  const { user, setUser } = useAuth()
+  const [loader, setLoader] = useState(false)
 
   const navigate = useNavigate()
 
@@ -21,6 +24,7 @@ function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setLoader(true)
     const email = inputData.email
     const password = inputData.password
 
@@ -28,14 +32,25 @@ function LoginPage() {
       loginApiRequest(email, password)
         .then((res) => {
           if (res.success === 'User logged in' && res.userLoggedIn.hasAccess) {
-            navigate('/')
+            setUser(res.userLoggedIn)
           }
         })
         .catch((err) => {
           setResponseState(err.response?.data)
         })
+        .finally(() => {
+          setLoader(false)
+        })
     }
   }
+
+  useEffect(() => {
+    if (user && JSON.stringify(user) !== JSON.stringify(prevUser)) {
+      navigate('/warehouse')
+    }
+  }, [user])
+
+  let prevUser = useRef(user).current
 
   return (
     <div className={styles.auth}>
@@ -70,7 +85,9 @@ function LoginPage() {
             />
           </p>
           <div className={styles.block}>
-            <button className={styles.button}>Είσοδος</button>
+            <button className={styles.button}>
+              {loader ? <span className={styles.loader}></span> : 'Είσοδος'}
+            </button>
             <div
               className={
                 responseState ? styles.response : styles.response__hidden
