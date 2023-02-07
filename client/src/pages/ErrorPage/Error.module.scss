@@ -1,0 +1,13 @@
+.content {
+  width: 100%;
+  padding: 1rem;
+  line-height: 1.5rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  color: var(--primary-text-color);
+}

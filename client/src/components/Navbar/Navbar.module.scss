@@ -1,3 +1,5 @@
+@use '../../styles/global/breakpoints' as breakpoint;
+
 .navbar {
   grid-area: nav;
   width: 100%;
@@ -7,6 +9,9 @@
   align-items: center;
   justify-content: flex-start;
   position: relative;
+  @include breakpoint.phone {
+    display: none;
+  }
 }
 
 .logo {

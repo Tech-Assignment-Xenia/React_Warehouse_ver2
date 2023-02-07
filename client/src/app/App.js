@@ -4,12 +4,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ProtectedRoute from '../other/ProtectedRoute'
 import LoginPage from '../pages/LoginPage/LoginPage'
 import HomePage from '../pages/HomePage/HomePage'
+import ErrorPage from '../pages/ErrorPage/Error'
 
 import './App.scss'
 
 const router = createBrowserRouter([
   { path: '/login', element: <LoginPage /> },
-  { path: '/', element: <HomePage /> },
+  { path: '/', element: <HomePage />, errorElement: <ErrorPage /> },
 ])
 
 function App() {

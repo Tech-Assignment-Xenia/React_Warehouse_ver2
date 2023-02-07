@@ -1,7 +1,9 @@
 import { useState } from 'react'
-import styles from './ExpandedMenu.module.scss'
+import { NavLink } from 'react-router-dom'
 
-const ExpandedMenu = ({ links, icon, title }) => {
+import styles from './Drop.module.scss'
+
+const DropMenu = ({ links, icon, title }) => {
   const [expanded, setExpanded] = useState(false)
 
   const handleClick = () => {
@@ -16,24 +18,29 @@ const ExpandedMenu = ({ links, icon, title }) => {
       </div>
       {expanded ? (
         <ul className={styles.menu__links}>
-          {links.map(({ name, image, icon }, idx) => (
-            <a href='#' key={idx}>
-              <li className={styles.links__li}>
+          {links.map(({ id, name, image, icon, link, end }) => (
+            <li className={styles.links__li} key={id}>
+              {' '}
+              <NavLink
+                to={link}
+                className={({ isActive }) =>
+                  isActive ? styles.active : undefined
+                }
+                end={end}
+              >
                 {icon ? (
                   icon
                 ) : (
                   <img src={require(`../../../assets/${image}`)} alt='icon' />
                 )}
                 {name}
-              </li>
-            </a>
+              </NavLink>
+            </li>
           ))}
         </ul>
-      ) : (
-        ''
-      )}
+      ) : undefined}
     </>
   )
 }
 
-export default ExpandedMenu
+export default DropMenu

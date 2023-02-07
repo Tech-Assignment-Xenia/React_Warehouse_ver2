@@ -12,6 +12,7 @@
 .title {
   font-weight: bold;
   font-size: 1rem;
+  margin-right: 0.75rem;
   color: var(--primary-text-color);
   @include breakpoint.phone {
     display: none;
@@ -20,7 +21,7 @@
 
 .search {
   width: 40%;
-  min-width: 200px;
+  min-width: 250px;
   display: flex;
   justify-content: space-between;
   align-items: center;

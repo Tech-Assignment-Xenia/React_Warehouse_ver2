@@ -1,3 +1,5 @@
+@use '../../styles/global/breakpoints' as breakpoint;
+
 .grid {
   display: grid;
   width: 100vw;
@@ -8,4 +10,8 @@
     'nav main';
   grid-template-columns: 225px auto;
   grid-template-rows: 15% 75%;
+
+  @include breakpoint.phone {
+    grid-template-columns: auto;
+  }
 }

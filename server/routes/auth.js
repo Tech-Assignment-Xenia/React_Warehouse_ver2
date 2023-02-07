@@ -9,7 +9,7 @@ router.post('/login', async (req, res, next) => {
   try {
     const { email, password } = req.body
     if (!(email && password)) {
-      return res.status(400).send('All inputs are required')
+      return res.status(400).send('Auth failed. All fields are required')
     }
     const user = await User.findOne({ email })
 
