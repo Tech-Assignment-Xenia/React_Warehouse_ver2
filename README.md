@@ -1,8 +1,12 @@
 # Code challenge
 
 ### Features:
-:heavy_check_mark: login functionality </br>
-:heavy_check_mark: responsive design </br>
+:heavy_check_mark: login functionality
+- server and client user validation
+- auto logout (when token expired)
+
+:heavy_check_mark: responsive design
+- looks good on different devices </br>
 
 ## What I am using: 
 
@@ -24,9 +28,17 @@ Front-end:
 ## Demo:
 - Deployed project is [here]()
 
-### Usage: 
+### Usage:
 
-## Development:
+Credentials to test login functionality:
+
+(User exists in db and have access to resourse)
+Email: john.doe@example.com
+Password: john.doe@example.com
+
+(User exists in db and do NOT access to resourse)
+Email: jane.doe@example.com
+Password: jane.doe@example.com
 
 ### Running application:
 Make sure you have own credentials in server/.env for:
