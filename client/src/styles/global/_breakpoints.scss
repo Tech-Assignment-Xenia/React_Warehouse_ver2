@@ -26,8 +26,8 @@
   }
 }
 
-@mixin laptop_custom {
-  @media only screen and (min-width: 992px) and (max-height: 650px) {
+@mixin tablet_custom {
+  @media only screen and (min-width: 768px) {
     @content;
   }
 }

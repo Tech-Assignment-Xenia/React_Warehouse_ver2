@@ -16,6 +16,7 @@ router.post('/login', async (req, res, next) => {
     if (user && comparePasswords(password, user.password)) {
       let cookieParams = {
         httpOnly: true,
+        secure: true,
         sameSite: 'strict',
       }
 

@@ -1,5 +1,7 @@
+@use '../../../styles/global/breakpoints' as breakpoint;
+
 .card {
-  min-width: 300px;
+  width: 300px;
   height: 160px;
   position: relative;
 
@@ -19,6 +21,10 @@
     font-weight: bold;
     color: var(--primary-text-color);
     margin-bottom: 0.5rem;
+
+    @include breakpoint.phone {
+      font-size: 0.75rem;
+    }
   }
 
   &__desc {

@@ -1,4 +1,4 @@
-//*seeder.js runs manually in console with command 'node seeder/seeder'
+//to seed data in db run command: npm run seeder-data'
 
 const connectDB = require('../config/db')
 connectDB()

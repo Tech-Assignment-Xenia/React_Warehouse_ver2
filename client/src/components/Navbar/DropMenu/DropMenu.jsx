@@ -20,7 +20,6 @@ const DropMenu = ({ links, icon, title }) => {
         <ul className={styles.menu__links}>
           {links.map(({ id, name, image, icon, link, end }) => (
             <li className={styles.links__li} key={id}>
-              {' '}
               <NavLink
                 to={link}
                 className={({ isActive }) =>
@@ -31,14 +30,20 @@ const DropMenu = ({ links, icon, title }) => {
                 {icon ? (
                   icon
                 ) : (
-                  <img src={require(`../../../assets/${image}`)} alt='icon' />
+                  <img
+                    src={require(`../../../assets/${image}`)}
+                    alt='icon'
+                    className={styles.img}
+                  />
                 )}
-                {name}
+                <p>{name}</p>
               </NavLink>
             </li>
           ))}
         </ul>
-      ) : undefined}
+      ) : (
+        ''
+      )}
     </>
   )
 }

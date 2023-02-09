@@ -38,17 +38,22 @@ app.use(
     maxAge: 24 * 60 * 60 * 1000,
   })
 )
+
+app.use(authRoutes)
+
 app.get('/get-token', (req, res) => {
   try {
     const accessToken = req.cookies['access_token']
     const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY)
-    return res.json({ token: decoded.name, hasAccess: decoded.hasAccess })
+    return res.json({
+      email: decoded.email,
+      hasAccess: decoded.hasAccess,
+      expiresIn: decoded.exp,
+    })
   } catch (err) {
     return res.status(401).send('Unauthorized. Invalid token')
   }
 })
-
-app.use(authRoutes)
 
 app.listen(process.env.PORT || 5000, () => {
   console.log('Backend server is running...')

@@ -1,7 +1,7 @@
 import styles from './Card.module.scss'
 
 function Card({ title, image }) {
-  const desc = 'Εξαγωγή υλικών ή ρεταλιών απο την αποθήκη'
+  const description = 'Εξαγωγή υλικών ή ρεταλιών απο την αποθήκη'
 
   return (
     <div className={styles.card}>
@@ -12,7 +12,7 @@ function Card({ title, image }) {
       />
       <div className={styles.card__body}>
         <p className={styles.card__title}>{title}</p>
-        <p className={styles.card__desc}>{desc}</p>
+        <p className={styles.card__desc}>{description}</p>
       </div>
     </div>
   )

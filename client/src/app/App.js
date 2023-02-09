@@ -1,13 +1,12 @@
-// import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { UserProvider } from '../hooks/AuthContext'
 
-import ProtectedRoute from '../other/ProtectedRoute'
+import MainPage from '../pages/MainPage/MainPage'
 import LoginPage from '../pages/LoginPage/LoginPage'
 import ErrorPage from '../pages/ErrorPage/Error'
+import ProtectedRoute from '../other/ProtectedRoute'
 
 import './App.scss'
-import MainPage from '../pages/MainPage/MainPage'
-import { UserProvider } from '../pages/AuthContext'
 
 const router = createBrowserRouter([
   {
@@ -19,7 +18,7 @@ const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
-        path: '/warehouse',
+        path: '/',
         element: (
           <ProtectedRoute>
             <MainPage />

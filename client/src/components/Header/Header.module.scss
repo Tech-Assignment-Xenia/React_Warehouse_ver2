@@ -7,6 +7,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include breakpoint.tablet {
+    padding: 0.5rem;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+  }
 }
 
 .title {
@@ -14,18 +20,21 @@
   font-size: 1rem;
   margin-right: 0.75rem;
   color: var(--primary-text-color);
-  @include breakpoint.phone {
+  @include breakpoint.tablet {
     display: none;
   }
 }
 
 .search {
-  width: 40%;
+  width: 50%;
   min-width: 250px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  @include breakpoint.tablet {
+    width: 80%;
+  }
 
   &__input {
     width: 100%;

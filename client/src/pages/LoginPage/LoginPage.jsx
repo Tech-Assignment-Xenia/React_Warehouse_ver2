@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Form, useNavigate } from 'react-router-dom'
 import { loginApiRequest } from './apiRequest'
-import { useAuth } from '../AuthContext'
+import { useAuth } from '../../hooks/AuthContext'
 
 import login_img from '../.././assets/login.png'
 
@@ -14,7 +14,7 @@ function LoginPage() {
     password: '',
   })
   const { user, setUser } = useAuth()
-  const [loader, setLoader] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate()
 
@@ -24,33 +24,41 @@ function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setLoader(true)
     const email = inputData.email
     const password = inputData.password
-
+    if (!email || !password) {
+      setResponseState('All input required. Please fill in all empty fields.')
+      return
+    }
+    setLoading(true)
     if (email && password) {
       loginApiRequest(email, password)
         .then((res) => {
           if (res.success === 'User logged in' && res.userLoggedIn.hasAccess) {
             setUser(res.userLoggedIn)
+            sessionStorage.setItem('user', JSON.stringify(res.userLoggedIn))
+          } else {
+            throw new Error(
+              `You do not have permission to access this resource`
+            )
           }
         })
         .catch((err) => {
-          setResponseState(err.response?.data)
+          setResponseState(err.response?.data || err.message)
         })
         .finally(() => {
-          setLoader(false)
+          setLoading(false)
         })
     }
   }
 
   useEffect(() => {
-    if (user && JSON.stringify(user) !== JSON.stringify(prevUser)) {
-      navigate('/warehouse')
+    if (user) {
+      navigate('/')
+    } else {
+      navigate('/login')
     }
   }, [user])
-
-  let prevUser = useRef(user).current
 
   return (
     <div className={styles.auth}>
@@ -58,7 +66,7 @@ function LoginPage() {
         <img src={login_img} alt='login_image' className={styles.auth__image} />
       </div>
       <div className={styles.auth__wrapper}>
-        <form
+        <Form
           action='post'
           className={styles.auth__form}
           onSubmit={handleSubmit}
@@ -70,7 +78,6 @@ function LoginPage() {
               type='email'
               name='email'
               id='email'
-              required
               onChange={handleChange}
             />
           </p>
@@ -80,13 +87,12 @@ function LoginPage() {
               id='password'
               type='password'
               name='password'
-              required
               onChange={handleChange}
             />
           </p>
           <div className={styles.block}>
             <button className={styles.button}>
-              {loader ? <span className={styles.loader}></span> : 'Είσοδος'}
+              {loading ? <span className={styles.loader}></span> : 'Είσοδος'}
             </button>
             <div
               className={
@@ -96,8 +102,7 @@ function LoginPage() {
               {responseState}
             </div>
           </div>
-        </form>
-
+        </Form>
         <a href='#'>Ξέχασα τον κωδικό μου</a>
       </div>
     </div>
