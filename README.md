@@ -32,13 +32,15 @@ Front-end:
 
 Credentials to test login functionality:
 
-(User exists in db and have access to resourse)
+1.User exists in db and have access to resourse <br/>
 Email: john.doe@example.com
 Password: john.doe@example.com
 
-(User exists in db and do NOT access to resourse)
+2.User exists in db and do NOT access to resourse <br/>
 Email: jane.doe@example.com
 Password: jane.doe@example.com
+
+3. User that doesn't exist in db can't login in app
 
 ### Running application:
 Make sure you have own credentials in server/.env for:
