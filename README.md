@@ -2,7 +2,7 @@
 
 ### Features:
 :heavy_check_mark: login functionality </br>
-:heavy_check_mark: responsiveness </br>
+:heavy_check_mark: responsive design </br>
 
 ## What I am using: 
 
