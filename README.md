@@ -1,4 +1,4 @@
-# React_Warehouse_management
+# Code challenge
 
 ### Features:
 :heavy_check_mark: login functionality </br>
