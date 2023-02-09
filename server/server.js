@@ -55,6 +55,19 @@ app.get('/get-token', (req, res) => {
   }
 })
 
+//production
+const path = require('path')
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')))
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'))
+  )
+} else {
+  app.get('/', (req, res) => {
+    res.json({ message: 'API running...' })
+  })
+}
+
 app.listen(process.env.PORT || 5000, () => {
   console.log('Backend server is running...')
 })
