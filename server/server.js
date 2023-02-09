@@ -63,7 +63,7 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'))
   )
 } else {
-  app.get('/login', (req, res) => {
+  app.get('/', (req, res) => {
     res.json({ message: 'API running...' })
   })
 }
