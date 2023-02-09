@@ -1,12 +1,8 @@
 # Code challenge
 
-### Features:
-:heavy_check_mark: login functionality
-- server and client user validation
-- auto logout (when token expired)
+### Core feature:
 
-:heavy_check_mark: responsive design
-- looks good on different devices </br>
+Login functionality with different access rights to resource
 
 ## What I am using: 
 
@@ -26,17 +22,18 @@ Front-end:
 - react-icons
 
 ## Demo:
+
 - Deployed project is [here]()
 
 ### Usage:
 
 Credentials to test login functionality:
 
-1.User exists in db and have access to resourse <br/>
+1. User exists in db and have access to resourse <br/><br/>
 Email: john.doe@example.com <br/>
 Password: john.doe@example.com
 
-2.User exists in db and do NOT access to resourse <br/>
+2. User exists in db and do NOT access to resourse <br/><br/>
 Email: jane.doe@example.com <br/>
 Password: jane.doe@example.com
 
